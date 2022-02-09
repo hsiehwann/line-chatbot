@@ -231,16 +231,16 @@ def replyMessage(payload):
 
 def pushMessage(payload):
     response = requests.post("https://api.line.me/v2/bot/message/push", headers=HEADER, data=json.dumps(payload))
-
     return 'OK'
 
 
 def getTotalSentMessageCount():
-    response = {}
+    response = requests.get("https://api.line.me/v2/bot/message/quota/consumption", headers=HEADER, data=json.dumps())
     return 0
 
 
 def getTodayCovid19Message():
+    response = requests.get("https://covid-19.nchc.org.tw/api/covid19?CK=covid-19@nchc.org.tw&querydata=4001&limited=TWN",  headers=HEADER, data=json.dumps())
     date = ""
     total_count = 0
     count = 0
