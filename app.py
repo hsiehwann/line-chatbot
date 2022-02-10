@@ -219,7 +219,7 @@ def getCarouselMessage(data):
 
 
 def getLocationConfirmMessage(title, latitude, longitude):
-    data = {"title":title, "latitude":latitude, "logitude":longitude, "action":"get_near"}
+    data = {"title":title, "latitude":latitude, "longitude":longitude, "action":"get_near"}
     message = {
         "type": "template",
         "altText": "this is a confirm template",
@@ -250,14 +250,14 @@ def getCallCarMessage(data):
         "altText": "this is a template",
         "template": {
             "type": "buttons",
-            "text": f"請選擇至 {data["title"]} 是否預約叫車",
+            "text": f"請選擇至 {data['title']} 是否預約叫車",
             "actions": [
                 {
                     "type": "datetimepicker",
                     "label": "預約",
                     "data": json.dumps(data),
                     "mode": "datetime"
-                },
+                }
             ]
         }
     }
