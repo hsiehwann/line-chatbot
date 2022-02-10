@@ -54,6 +54,8 @@ def index():
                                            getMRTVideoMessage()]
                 elif text == "台北101圖":
                     payload["messages"] = [getTaipei101LocationMessage()]
+                elif text == "台北101影片":
+                    payload["messages"] = [getMRTVideoMessage()]
                 elif text == "quoda":
                     payload["messages"] = [
                             {
@@ -212,12 +214,14 @@ def getPlayStickerMessage():
 
 def getTaipei101LocationMessage():
     message = dict()
-
     return message
 
 
 def getMRTVideoMessage():
     message = dict()
+    message["type"] = "video"
+    message["originalContentUrl"] = F"{end_point}/static/taipei_101_video.mp4"
+    message["previewImageUrl"] = F"{end_point}/static/taipei_101.jpeg"
     return message
 
 
@@ -240,8 +244,8 @@ def getTaipei101ImageMessage(originalContentUrl=F"{end_point}/static/taipei_101.
 def getImageMessage(originalContentUrl):
     message = dict()
     message["type"] = "image"
-    message["originalContentUrl"] = "https://www.travel.taipei/zh-tw/attraction/details/217"
-    message["previewImageUrl"] = "https://www.travel.taipei/zh-tw/attraction/details/217"
+    message["originalContentUrl"] = originalContentUrl
+    message["previewImageUrl"] = originalContentUrl
     return message
 
 
