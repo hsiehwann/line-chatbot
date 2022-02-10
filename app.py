@@ -182,7 +182,7 @@ def getNameEmojiMessage():
             }
         )
     message["emojis"] = emojis_list
-    return
+    return message
 
 
 def getCarouselMessage(data):
