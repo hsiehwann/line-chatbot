@@ -203,8 +203,8 @@ def getCallCarMessage(data):
 def getPlayStickerMessage():
     message = dict()
     message["type"] = "sticker"
-    message["packageId"]: "789"
-    message["stickerId"]: "10859"
+    message["packageId"] = "789"
+    message["stickerId"] = "10859"
     return message
 
 
